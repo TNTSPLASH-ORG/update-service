@@ -9,10 +9,6 @@ if [[ "${SUFFIX}" == "off" ]]; then
     unset SUFFIX
 fi
 
-if [ -z "${SSH_PRIVATE_KEY}" ]; then
-    echo "ERROR: SSH_PRIVATE_KEY is required to clone private repositories" && exit 1
-fi
-
 if [ -z "${TARGET_REPO}" ]; then
     echo "ERROR: TARGET_REPO must be set to an SSH git clone URL" && exit 2
 fi
