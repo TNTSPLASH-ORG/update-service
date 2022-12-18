@@ -1,0 +1,7 @@
+name: update-service
+description: https://github.com/TNTSPLASH-ORG/update-service
+runs:
+  using: "composite"
+  steps:
+    - shell: bash
+      run: ${{ github.action_path }}/update-service.sh
