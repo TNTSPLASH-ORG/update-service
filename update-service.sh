@@ -21,6 +21,11 @@ if [ -z "${REPLACE_VALUE}" ]; then
     export REPLACE_VALUE=${GITHUB_SHA}
 fi
 
+mkdir -p ~/.ssh
+ssh-keyscan -t rsa github.com >>~/.ssh/known_hosts
+eval $(ssh-agent)
+ssh-add - <<<"${SSH_PRIVATE_KEY}"
+
 # clone target git repository
 git clone -b ${BRANCH} ${TARGET_REPO} ${DIRECTORY}
 cd ${DIRECTORY}
